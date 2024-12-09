@@ -18,6 +18,7 @@
         <th scope="col">
             CONTENT
         </th>
+        <th scope="col">STATUS</th>
         <th scope="col">AKSI</th>
     </tr>
     </thead>
@@ -30,6 +31,18 @@
             </td>
             <td>{{ $post->title }}</td>
             <td>{!! $post->content !!}</td>
+            <td>
+                @if(isset($post->status))
+                    @if($post->status == 1)
+                        <p class="text-success text-center">Actived</p>
+                    @elseif($post->status == 2)
+                        <p class="text-warning text-center">Inactived</p>
+                    @elseif($post->status == 3)
+                        <p class="text-danger text-center">Banned</p>
+                    @endif
+                @endif
+            </td>
+
             <td class="text-center">
                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('posts.destroy', $post->id) }}" method="POST">
                     <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>
