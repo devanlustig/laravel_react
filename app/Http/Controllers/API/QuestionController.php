@@ -48,6 +48,7 @@ class QuestionController extends Controller
             'title'     => $request->title,
             'question'   => $request->question,
             'pilihan'   => $request->pilihan,
+            'produk_id' => $request->produk_id,
         ]);
 
         //return response
@@ -97,6 +98,7 @@ class QuestionController extends Controller
                 'title'     => $request->title,
                 'question'   => $request->question,
                 'pilihan'   => $request->pilihan,
+                'produk_id' => $request->produk_id,
             ]);
 
         } else {
@@ -106,11 +108,21 @@ class QuestionController extends Controller
                 'title'     => $request->title,
                 'question'   => $request->question,
                 'pilihan'   => $request->pilihan,
+                'produk_id' => $request->produk_id,
             ]);
         }
 
         //return response
         return new PostResource(true, 'Data Question Berhasil Diubah!', $question);
+    }
+
+
+    public function getMasterProduk()
+    {
+        
+        $question = Question::getMasterProduk();
+
+        return new PostResource(true, 'Data Master Produk!', $question);
     }
 
 

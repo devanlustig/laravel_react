@@ -9,10 +9,18 @@ class Question extends Model
 {
     use HasFactory;
 
+    protected $table = 'questions';
+
     protected $fillable = [
         'title',
         'question',
         'image',
         'pilihan',
+        'produk_id',
     ];
+
+    public static function getMasterProduk()
+    {
+        return \DB::table('master_produk')->get();
+    }
 }
