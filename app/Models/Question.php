@@ -13,5 +13,6 @@ class Question extends Model
         'title',
         'question',
         'image',
+        'pilihan',
     ];
 }

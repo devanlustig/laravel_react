@@ -47,6 +47,7 @@ class QuestionController extends Controller
             'image'     => $image->hashName(),
             'title'     => $request->title,
             'question'   => $request->question,
+            'pilihan'   => $request->pilihan,
         ]);
 
         //return response
@@ -95,6 +96,7 @@ class QuestionController extends Controller
                 'image'     => $image->hashName(),
                 'title'     => $request->title,
                 'question'   => $request->question,
+                'pilihan'   => $request->pilihan,
             ]);
 
         } else {
@@ -103,6 +105,7 @@ class QuestionController extends Controller
             $question->update([
                 'title'     => $request->title,
                 'question'   => $request->question,
+                'pilihan'   => $request->pilihan,
             ]);
         }
 
