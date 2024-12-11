@@ -19,6 +19,15 @@ class Question extends Model
         'produk_id',
     ];
 
+    public static function getQuestionsWithProduk($id)
+    {
+        return \DB::table('questions')
+            ->join('master_produk', 'questions.produk_id', '=', 'master_produk.id')  
+            ->select('questions.*', 'master_produk.nama_produk')
+            ->where('questions.id', $id)
+            ->first();
+    }
+
     public static function getMasterProduk()
     {
         return \DB::table('master_produk')->get();

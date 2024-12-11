@@ -63,6 +63,15 @@ class QuestionController extends Controller
         return new PostResource(true, 'Detail Data Question!', $question);
     }
 
+    public function getQuestionsWithProduk($id)
+    {
+        
+        $question = Question::getQuestionsWithProduk($id);
+
+
+        return new PostResource(true, 'Detail Data Question & Produk!', $question);
+    }
+
     public function update(Request $request, $id)
     {
         //define validation rules

@@ -20,6 +20,7 @@ Route::get('/getPosts', [APIController::class, 'getPosts']);
 Route::apiResource('/posts', App\Http\Controllers\API\PostController::class);
 Route::apiResource('/questions', App\Http\Controllers\API\QuestionController::class);
 Route::get('/getMasterProduk', [App\Http\Controllers\API\QuestionController::class, 'getMasterProduk']);
+Route::get('/getQuestionsProduk/{id}', [App\Http\Controllers\API\QuestionController::class, 'getQuestionsWithProduk']);
 Route::post('/logout', [APIController::class, 'logout']);
 Route::post('/login', [APIController::class, 'login']);
 
